@@ -149,7 +149,7 @@ Process {
                     $AppCount++
                     $ApplicationName = $Application.LocalizedDisplayName
                     Update-StatusBar -Activity Validating -Text "Validating application $($AppCount) / $($ApplicationCount)"
-                    if ($Application.HasContent -eq $true) {
+                    if ($Application.HasContent -eq $true -and $Application.isExpired -eq $false) {
                         # Get Application object including Lazy properties
                         $Application.Get()
                         # Deserialize SDMPakageXML property from string
